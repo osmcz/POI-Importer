@@ -26,7 +26,7 @@ function loadDatasets()
 					if (req.readyState != 4)
 					    return;
 				        var response = req.responseText
-				        if (response == '')
+				        if (req.status == 404 || response == '')
 					    return;
 					var settings = JSON.parse(response);
 					settings.url = datasets[country][dataset].url;
@@ -37,6 +37,34 @@ function loadDatasets()
 						toggleDataset(dataset, el);
 				}
 				req.open("GET", datasets[country][dataset].url + "dataset.json", true);
+				try
+				{
+					req.send(null);
+				}
+				catch (e)
+				{
+					console.log(datasets[country][dataset].url);
+					console.log(e);
+				}
+			})(country, dataset);
+
+			//load last updated date+time
+			(function (country, dataset)
+			{
+				var req = new XMLHttpRequest();
+				req.overrideMimeType("application/json");
+				req.onreadystatechange = function()
+				{
+					if (req.readyState != 4)
+					    return;
+				        var response = req.responseText
+				        if (req.status == 404 || response == '')
+					    return;
+					var settings = JSON.parse(response);
+					var up = document.getElementById(dataset + "Update");
+					up.innerHTML = settings.updated;
+				}
+				req.open("GET", datasets[country][dataset].url + "updated.json", true);
 				try
 				{
 					req.send(null);
@@ -125,9 +153,9 @@ function loadData()
 						if (req.readyState != 4)
 						    return;
 					        var response = req.responseText
-					        if (response == '')
+					        if (req.status == 404 || response == '')
 						    return;
-					    
+
 						var data = geojsonToPointlist(JSON.parse(response));
 						tiledData[datasetName][tileName].data = data;
 						for (var p = 0; p < data.length; p++)
@@ -211,7 +239,7 @@ function loadOverpass()
 		if (req.status != 200)
 		    return;
 	        var response = req.responseText
-	        if (response == '')
+	        if (req.status == 404 || response == '')
 		    return;
 		var osmData = JSON.parse(req.responseText).elements;
 		compareData(queriedDatasets, osmData);
@@ -221,7 +249,7 @@ function loadOverpass()
 	}
 	queryStatus.busy = true;
 	req.open("GET", overpassApi + encodeURIComponent(query), true);
-	req.send(null);	
+	req.send(null);
 }
 
 function displayPoint(datasetName, tileName, idx)
@@ -249,7 +277,7 @@ function displayPoint(datasetName, tileName, idx)
 		point.marker.setOpacity(1);
 
 	point.marker.setIcon(settings.icons[Math.floor(10 * point.score/point.maxScore)]);
-	point.marker.bindPopup(htmlHelper.getPopup(datasetName, tileName, idx), {"maxWidth": 900});
+	point.marker.bindPopup(htmlHelper.getPopup(datasetName, tileName, idx), {"minWidth": 340, "maxWidth": 900});
 }
 
 function loadIcons(settings)
@@ -259,9 +287,13 @@ function loadIcons(settings)
 	for (var i = 0; i <= 10; i++)
 	{
 		var colour = hslToRgb(i / 30, 1, 0.5);
-		settings.icons.push(L.MakiMarkers.icon({icon: settings.icon, color: colour, size: "m"}));
+		var icon_size = "m";
+		if (i % 2 == 0) {
+			icon_size = "s";
+		}
+		settings.icons.push(L.MakiMarkers.icon({icon: settings.icon, color: colour, size: icon_size}));
 	}
-	settings.greyIcon = L.MakiMarkers.icon({icon: settings.icon, color: "#808080", size: "m"});
+	settings.greyIcon = L.MakiMarkers.icon({icon: settings.icon, color: "#808080", size: "s"});
 }
 
 function geojsonToPointlist(geojson)
@@ -410,7 +442,7 @@ function applyStateString(state)
 		}
 		else if (splitState[i].indexOf("datasets=") == 0)
 		{
-			var loadedDatasets = splitState[i].substr(9).split(";"); 
+			var loadedDatasets = splitState[i].substr(9).split(";");
 			for (var d = 0; d < loadedDatasets.length; d++)
 			{
 				var id = decodeURIComponent(loadedDatasets[d])

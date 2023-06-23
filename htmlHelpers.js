@@ -1,6 +1,6 @@
 var htmlHelper = (function()
 {
-	var wikiUrl = "http://wiki.openstreetmap.org/wiki/";
+	var wikiUrl = "https://wiki.openstreetmap.org/wiki/";
 
 	var addDataset = function (country, id)
 	{
@@ -22,7 +22,8 @@ var htmlHelper = (function()
 		var innerHTML = section.innerHTML;
 		innerHTML += '&nbsp;&nbsp;' +
 			'<input type="checkbox" id="' + id + 'Dataset" onchange="toggleDataset(\'' + id + '\',this)" /> ' +
-			'<label for="' + id + 'Dataset">' + displayname + '</label> ' +
+			'<label for="' + id + 'Dataset">' + displayname + '</label>, ' +
+			'<small id="'+id+'Update"></small>, ' +
 			'<small><a title="OpenStreetMap wiki" href="' + wikiUrl + 'POI_Importer/Datasets/' + country + '/' + displayname + '">info</a></small>' +
 			'<br/>';
 		section.innerHTML = innerHTML;
@@ -37,9 +38,9 @@ var htmlHelper = (function()
 			"&top="           + (point.coordinates.lat + 0.001) +
 			"&bottom="        + (point.coordinates.lat - 0.001);
 		var popupHtml = "<table style='border-collapse:collapse'>" +
-			"<tr>" + 
-			"<th colspan='3'><a onclick='josmHelper.importPoint(\""+datasetName+"\",\""+tileName+"\",\""+idx+"\")' title='Import point in JOSM'>Import Data</a></th>" +
-			"<th colspan='3'><a onclick='josmHelper.openOsmArea(\""+area+"\")' title='Open area in JOSM'>OSM Data</a></th>" +
+			"<tr>" +
+			"<th colspan='3'>Importovaná data (<a onclick='josmHelper.importPoint(\""+datasetName+"\",\""+tileName+"\",\""+idx+"\")' title='Otevřít bod v JOSM'>JOSM</a>)</th>" +
+			"<th colspan='3'>OSM data (<a onclick='josmHelper.openOsmArea(\""+area+"\")' title='Otevřít oblast v JOSM'>JOSM</a>)</th>" +
 			"</tr>";
 
 		for (var t = 0; t < settings.tagmatch.length; t++)
@@ -54,16 +55,46 @@ var htmlHelper = (function()
 					point.osmElement.tags[tag.key]) * (tag.importance || 1);
 			var colour = hslToRgb(score / 3, 1, 0.8);
 			popupHtml += "<tr style='background-color:" + colour + ";'><td>";
-			popupHtml += "<b>" + tag.key + "</b></td><td> = </td><td> " + point.properties[tag.key];
+			popupHtml += "<b>" + tag.key + "</b></td><td> = </td><td> ";
+                        if (tag.key === 'website') {
+                            popupHtml += '<a href="'+ point.properties[tag.key] +'">'+ point.properties[tag.key] +'</a>';
+                        } else {
+                            popupHtml += point.properties[tag.key];
+                        }
 			popupHtml += "</td><td>";
 			popupHtml += "<b>" + tag.key + "</b></td><td> = </td><td>";
 			if (point.osmElement && point.osmElement.tags && point.osmElement.tags[tag.key])
-				popupHtml += point.osmElement.tags[tag.key];
+                        if (tag.key === 'website') {
+                            popupHtml += '<a href="'+ point.osmElement.tags[tag.key] +'">'+ point.osmElement.tags[tag.key] +'</a>';
+                        } else {
+                            popupHtml +=point.osmElement.tags[tag.key];
+                        }
 			else
 				popupHtml += "N/A";
 
 			popupHtml += "</td></tr>";
+
 		}
+
+		// Show fixme=* tag if exists
+		if (point.osmElement && point.osmElement.tags && point.osmElement.tags['fixme']) {
+			popupHtml += "<tr style='background-color: #ff9999;'><td>";
+			popupHtml += "<b></b></td><td></td><td>";
+			popupHtml += "</td><td>";
+			popupHtml += "<b>fixme</b></td><td> = </td><td>";
+			popupHtml += point.osmElement.tags['fixme'];
+			popupHtml += "</td></tr>";
+		}
+
+		popupHtml += "<tr><td colspan='3' style='text-align: right'> " + point.coordinates.lat.toFixed(6) + ', ' + point.coordinates.lon.toFixed(6) + "</td>";
+		if (point.osmElement.lat) {
+			popupHtml += "<td colspan='3' style='text-align: right'> " + point.osmElement.lat.toFixed(6) + ', ' + point.osmElement.lon.toFixed(6) + "</td></tr>";
+		} else {
+			popupHtml += "<td colspan='3' style='text-align: right'>N/A</td></tr>";
+		}
+
+		if (point.properties["_note"])
+			popupHtml += "<tr><td colspan='6'>" + point.properties["_note"] + "</td></tr>";
 		popupHtml += "</table>";
 		return popupHtml;
 	};
@@ -96,7 +127,7 @@ var htmlHelper = (function()
 
 	var clearComments = function()
 	{
-		document.getElementById("commentsContent").innerHTML = "Select a feature to see comments.";
+		document.getElementById("commentsContent").innerHTML = "Vyberte vlastnost pro zobrazení komentářů.";
 		document.getElementById("newComment").style.display = "none";
 	};
 
