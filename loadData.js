@@ -254,12 +254,13 @@ function loadOverpass()
 
 function displayPoint(datasetName, tileName, idx)
 {
+	var myIcon = L.divIcon({className: 'my-div-icon'});
 	var point = tiledData[datasetName][tileName].data[idx];
 	var settings = datasetSettings[datasetName];
 	// add marker to the data for future reference
 	if (!point.marker)
-		point.marker = L.marker(point.coordinates, {icon: settings.greyIcon})
-			.addTo(settings.layer);
+		point.marker = L.marker(point.coordinates, {icon: myIcon})
+				.addTo(settings.layer);
 	if (settings.id)
 	{
 		function popupOpen(dataset, feature) { return function () { commentsHelper.loadComments(dataset, feature); }; }
@@ -286,14 +287,10 @@ function loadIcons(settings)
 	settings.icons = [];
 	for (var i = 0; i <= 10; i++)
 	{
-		var colour = hslToRgb(i / 30, 1, 0.5);
-		var icon_size = "m";
-		if (i % 2 == 0) {
-			icon_size = "s";
-		}
-		settings.icons.push(L.MakiMarkers.icon({icon: settings.icon, color: colour, size: icon_size}));
+		settings.icons.push(L.divIcon({className: 'div-marker '+'scale-'+i+' '+settings.icon}));
 	}
-	settings.greyIcon = L.MakiMarkers.icon({icon: settings.icon, color: "#808080", size: "s"});
+
+	settings.greyIcon = L.divIcon({className: 'div-marker grey '+settings.icon});
 }
 
 function geojsonToPointlist(geojson)
@@ -394,7 +391,7 @@ function loadAppState(mapObj)
 	if (window.location.hash)
 		stateString = window.location.hash.slice(1);
 	else if (document.cookie)
-		stateString = decodeURIComponent(document.cookie.slice(6));
+		stateString = decodeURIComponent(document.cookie.slice(6)); // TODO: fix cookies decoding, currently broken
 	if (stateString)
 		applyStateString(stateString);
 }
@@ -438,7 +435,7 @@ function applyStateString(state)
 		if (splitState[i].indexOf("map=") == 0)
 		{
 			var mapState = splitState[i].match(/[0-9\.]+/g);
-			mapObj.setView([+mapState[1], +mapState[2]], +mapState[0]);
+			mapObj.setView(new L.latLng(+mapState[1], +mapState[2]), +mapState[0]);
 		}
 		else if (splitState[i].indexOf("datasets=") == 0)
 		{

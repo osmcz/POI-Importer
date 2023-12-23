@@ -6,6 +6,7 @@
 		<meta charset='utf-8'>
 		<title>POI Importer</title>
 		<link rel="stylesheet" href="leaflet.css" />
+		<link rel="stylesheet" href="div-markers.css" />
 		<style type="text/css">
 			#mapPane { height: 100%; width: 100%; }
 			#leftPane
@@ -13,7 +14,7 @@
 				width: 20%;
 				max-height: calc(100% - 15px);
 				position:absolute;
-				z-index: 1;
+				z-index: 999;
 				overflow: auto;
 			}
 			div.settingsHeader
@@ -54,8 +55,8 @@
 			}
 			body
 			{
-        background-color: #EEE;
-        color: #555;
+			    background-color: #EEE;
+			    color: #555;
 			}
 /*
 			TODO use this for warning users there are comments
@@ -117,7 +118,6 @@
 	</div>
 
 	<script src="leaflet.js"></script>
-	<script src="Leaflet.MakiMarkers.js"></script>
 	<script src="oms.min.js"></script>
 	<script type="text/javascript" src="datasets.js"></script>
 	<script type="text/javascript" src="geoHelpers.js"></script>
@@ -129,9 +129,7 @@
 	<script type="text/javascript" src="L.Grid.js"></script>
 	<script type="text/javascript">
 		loadDatasets();
-		var mapObj = L.map('mapPane', {"zoomControl": false});
-		mapObj.fitWorld();
-		mapObj.setZoom(3);
+		var mapObj = L.map('mapPane', {"zoomControl": false, "center": new L.LatLng(48.8611,17.8802), "zoom": 7});
 		mapObj.on("zoomend", loadData);
 		mapObj.on("moveend", loadData);
 	L.tileLayer("https://b.tile.openstreetmap.org/{z}/{x}/{y}.png", {
