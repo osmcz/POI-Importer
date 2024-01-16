@@ -1,0 +1,15 @@
+{
+    "zoom": 10,
+    "query":"[tourism=information][information=office]",
+    "icon": "circle",
+    "dist": 100,
+    "types": ["node", "way"],
+    "tagmatch":
+    [
+        {"key":"ref:nap", "algorithm":"equality"},
+        {"key":"name", "algorithm":"equality"},
+        {"key":"website", "algorithm":"equality"},
+        {"key":"email", "algorithm":"equality"},
+        {"key":"phone", "algorithm":"equality"}
+    ]
+}
