@@ -1,0 +1,734 @@
+.div-marker {
+    width: 1.5rem !important;
+    height: 3rem !important;
+    background-image: url(markers/marker-grey.svg);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: 1.5rem 3rem;
+    background-position: center;
+}
+
+.div-marker.grey {
+    background-image: url(markers/marker-grey.svg) !important;
+}
+.div-marker.scale-0 {
+    /*#ff0000*/
+    background-image: url(markers/marker-scale-0.svg) !important;
+}
+.div-marker.scale-1 {
+    /*#ff3300*/
+    background-image: url(markers/marker-scale-1.svg) !important;
+}
+.div-marker.scale-2 {
+    /*#ff6600*/
+    background-image: url(markers/marker-scale-2.svg) !important;
+}
+.div-marker.scale-3 {
+    /*#ff9900*/
+    background-image: url(markers/marker-scale-3.svg) !important;
+}
+.div-marker.scale-4 {
+    /*#ffcc00*/
+    background-image: url(markers/marker-scale-4.svg) !important;
+}
+.div-marker.scale-5 {
+    /*#ffff00*/
+    background-image: url(markers/marker-scale-5.svg) !important;
+}
+.div-marker.scale-6 {
+    /*#ccff00*/
+    background-image: url(markers/marker-scale-6.svg) !important;
+}
+.div-marker.scale-7 {
+    /*#99ff00*/
+    background-image: url(markers/marker-scale-7.svg) !important;
+}
+.div-marker.scale-8 {
+    /*#66ff00*/
+    background-image: url(markers/marker-scale-8.svg) !important;
+}
+.div-marker.scale-9 {
+    /*#33ff00*/
+    background-image: url(markers/marker-scale-9.svg) !important
+}
+.div-marker.scale-10 {
+    /*#00ff00*/
+    background-image: url(markers/marker-scale-10.svg) !important;
+}
+.div-marker.scale-11 {
+    /*#00ff33*/
+    background-image: url(markers/marker-scale-11.svg) !important;
+}
+
+.div-marker.scale-0::before,
+.div-marker.scale-1::before,
+.div-marker.scale-2::before,
+.div-marker.scale-3::before,
+.div-marker.scale-4::before {
+    filter: invert(100%) sepia(9%) saturate(27%) hue-rotate(210deg) brightness(113%) contrast(87%);
+}
+.div-marker.scale-10::before, .div-marker.scale-11::before {
+    filter: unset;
+
+}
+
+.div-marker::before {
+    position: fixed;
+    top: 0.6rem;
+    left: 0.3rem;
+    color: white;
+    content: "";
+    display: block;
+    height:0.9rem !important;
+    width: 0.9rem !important;
+    background-size: 0.9rem 0.9rem;
+    background-image: url('icons/circle.svg');
+    background-repeat: no-repeat;
+/*     filter: invert(42%) sepia(4%) saturate(0%) hue-rotate(139deg) brightness(91%) contrast(87%); */
+    filter: invert(24%) sepia(0%) saturate(1586%) hue-rotate(150deg) brightness(85%) contrast(102%);
+/*     filter: invert(100%) sepia(9%) saturate(27%) hue-rotate(210deg) brightness(113%) contrast(87%); */
+}
+
+/* ==== MAKI icons ==== */
+
+/* ls -1 |while read X; do echo ".div-marker.${X%.svg}::before {background-image: url('icons/${X}');};"; done */
+
+.div-marker.aerialway::before {
+	background-image: url('icons/aerialway.svg');
+}
+.div-marker.airfield::before {
+	background-image: url('icons/airfield.svg');
+}
+.div-marker.airport::before {
+	background-image: url('icons/airport.svg');
+}
+.div-marker.alcohol-shop::before {
+	background-image: url('icons/alcohol-shop.svg');
+}
+.div-marker.american-football::before {
+	background-image: url('icons/american-football.svg');
+}
+.div-marker.amusement-park::before {
+	background-image: url('icons/amusement-park.svg');
+}
+.div-marker.animal-shelter::before {
+	background-image: url('icons/animal-shelter.svg');
+}
+.div-marker.aquarium::before {
+	background-image: url('icons/aquarium.svg');
+}
+.div-marker.arrow::before {
+	background-image: url('icons/arrow.svg');
+}
+.div-marker.art-gallery::before {
+	background-image: url('icons/art-gallery.svg');
+}
+.div-marker.attraction::before {
+	background-image: url('icons/attraction.svg');
+}
+.div-marker.bakery::before {
+	background-image: url('icons/bakery.svg');
+}
+.div-marker.bank-JP::before {
+	background-image: url('icons/bank-JP.svg');
+}
+.div-marker.bank::before {
+	background-image: url('icons/bank.svg');
+}
+.div-marker.barrier::before {
+	background-image: url('icons/barrier.svg');
+}
+.div-marker.bar::before {
+	background-image: url('icons/bar.svg');
+}
+.div-marker.baseball::before {
+	background-image: url('icons/baseball.svg');
+}
+.div-marker.basketball::before {
+	background-image: url('icons/basketball.svg');
+}
+.div-marker.bbq::before {
+	background-image: url('icons/bbq.svg');
+}
+.div-marker.beach::before {
+	background-image: url('icons/beach.svg');
+}
+.div-marker.beer::before {
+	background-image: url('icons/beer.svg');
+}
+.div-marker.bicycle-share::before {
+	background-image: url('icons/bicycle-share.svg');
+}
+.div-marker.bicycle::before {
+	background-image: url('icons/bicycle.svg');
+}
+.div-marker.blood-bank::before {
+	background-image: url('icons/blood-bank.svg');
+}
+.div-marker.bowling-alley::before {
+	background-image: url('icons/bowling-alley.svg');
+}
+.div-marker.bridge::before {
+	background-image: url('icons/bridge.svg');
+}
+.div-marker.building-alt1::before {
+	background-image: url('icons/building-alt1.svg');
+}
+.div-marker.building::before {
+	background-image: url('icons/building.svg');
+}
+.div-marker.bus::before {
+	background-image: url('icons/bus.svg');
+}
+.div-marker.cafe::before {
+	background-image: url('icons/cafe.svg');
+}
+.div-marker.campsite::before {
+	background-image: url('icons/campsite.svg');
+}
+.div-marker.car-rental::before {
+	background-image: url('icons/car-rental.svg');
+}
+.div-marker.car-repair::before {
+	background-image: url('icons/car-repair.svg');
+}
+.div-marker.car::before {
+	background-image: url('icons/car.svg');
+}
+.div-marker.casino::before {
+	background-image: url('icons/casino.svg');
+}
+.div-marker.castle-JP::before {
+	background-image: url('icons/castle-JP.svg');
+}
+.div-marker.castle::before {
+	background-image: url('icons/castle.svg');
+}
+.div-marker.caution::before {
+	background-image: url('icons/caution.svg');
+}
+.div-marker.cemetery-JP::before {
+	background-image: url('icons/cemetery-JP.svg');
+}
+.div-marker.cemetery::before {
+	background-image: url('icons/cemetery.svg');
+}
+.div-marker.cinema::before {
+	background-image: url('icons/cinema.svg');
+}
+.div-marker.circle-stroked::before {
+	background-image: url('icons/circle-stroked.svg');
+}
+.div-marker.circle::before {
+	background-image: url('icons/circle.svg');
+}
+.div-marker.city::before {
+	background-image: url('icons/city.svg');
+}
+.div-marker.clothing-store::before {
+	background-image: url('icons/clothing-store.svg');
+}
+.div-marker.college-JP::before {
+	background-image: url('icons/college-JP.svg');
+}
+.div-marker.college::before {
+	background-image: url('icons/college.svg');
+}
+.div-marker.commercial::before {
+	background-image: url('icons/commercial.svg');
+}
+.div-marker.communications-tower::before {
+	background-image: url('icons/communications-tower.svg');
+}
+.div-marker.confectionery::before {
+	background-image: url('icons/confectionery.svg');
+}
+.div-marker.construction::before {
+	background-image: url('icons/construction.svg');
+}
+.div-marker.convenience::before {
+	background-image: url('icons/convenience.svg');
+}
+.div-marker.cricket::before {
+	background-image: url('icons/cricket.svg');
+}
+.div-marker.cross::before {
+	background-image: url('icons/cross.svg');
+}
+.div-marker.dam::before {
+	background-image: url('icons/dam.svg');
+}
+.div-marker.danger::before {
+	background-image: url('icons/danger.svg');
+}
+.div-marker.defibrillator::before {
+	background-image: url('icons/defibrillator.svg');
+}
+.div-marker.dentist::before {
+	background-image: url('icons/dentist.svg');
+}
+.div-marker.diamond::before {
+	background-image: url('icons/diamond.svg');
+}
+.div-marker.doctor::before {
+	background-image: url('icons/doctor.svg');
+}
+.div-marker.dog-park::before {
+	background-image: url('icons/dog-park.svg');
+}
+.div-marker.drinking-water::before {
+	background-image: url('icons/drinking-water.svg');
+}
+.div-marker.elevator::before {
+	background-image: url('icons/elevator.svg');
+}
+.div-marker.embassy::before {
+	background-image: url('icons/embassy.svg');
+}
+.div-marker.emergency-phone::before {
+	background-image: url('icons/emergency-phone.svg');
+}
+.div-marker.entrance-alt1::before {
+	background-image: url('icons/entrance-alt1.svg');
+}
+.div-marker.entrance::before {
+	background-image: url('icons/entrance.svg');
+}
+.div-marker.farm::before {
+	background-image: url('icons/farm.svg');
+}
+.div-marker.fast-food::before {
+	background-image: url('icons/fast-food.svg');
+}
+.div-marker.fence::before {
+	background-image: url('icons/fence.svg');
+}
+.div-marker.ferry-JP::before {
+	background-image: url('icons/ferry-JP.svg');
+}
+.div-marker.ferry::before {
+	background-image: url('icons/ferry.svg');
+}
+.div-marker.fire-station-JP::before {
+	background-image: url('icons/fire-station-JP.svg');
+}
+.div-marker.fire-station::before {
+	background-image: url('icons/fire-station.svg');
+}
+.div-marker.fitness-centre::before {
+	background-image: url('icons/fitness-centre.svg');
+}
+.div-marker.florist::before {
+	background-image: url('icons/florist.svg');
+}
+.div-marker.fuel::before {
+	background-image: url('icons/fuel.svg');
+}
+.div-marker.furniture::before {
+	background-image: url('icons/furniture.svg');
+}
+.div-marker.gaming::before {
+	background-image: url('icons/gaming.svg');
+}
+.div-marker.garden-centre::before {
+	background-image: url('icons/garden-centre.svg');
+}
+.div-marker.garden::before {
+	background-image: url('icons/garden.svg');
+}
+.div-marker.gate::before {
+	background-image: url('icons/gate.svg');
+}
+.div-marker.gift::before {
+	background-image: url('icons/gift.svg');
+}
+.div-marker.globe::before {
+	background-image: url('icons/globe.svg');
+}
+.div-marker.golf::before {
+	background-image: url('icons/golf.svg');
+}
+.div-marker.grocery::before {
+	background-image: url('icons/grocery.svg');
+}
+.div-marker.hairdresser::before {
+	background-image: url('icons/hairdresser.svg');
+}
+.div-marker.harbor::before {
+	background-image: url('icons/harbor.svg');
+}
+.div-marker.hardware::before {
+	background-image: url('icons/hardware.svg');
+}
+.div-marker.heart::before {
+	background-image: url('icons/heart.svg');
+}
+.div-marker.heliport::before {
+	background-image: url('icons/heliport.svg');
+}
+.div-marker.highway-rest-area::before {
+	background-image: url('icons/highway-rest-area.svg');
+}
+.div-marker.historic::before {
+	background-image: url('icons/historic.svg');
+}
+.div-marker.home::before {
+	background-image: url('icons/home.svg');
+}
+.div-marker.horse-riding::before {
+	background-image: url('icons/horse-riding.svg');
+}
+.div-marker.hospital-JP::before {
+	background-image: url('icons/hospital-JP.svg');
+}
+.div-marker.hospital::before {
+	background-image: url('icons/hospital.svg');
+}
+.div-marker.hot-spring::before {
+	background-image: url('icons/hot-spring.svg');
+}
+.div-marker.charging-station::before {
+	background-image: url('icons/charging-station.svg');
+}
+.div-marker.ice-cream::before {
+	background-image: url('icons/ice-cream.svg');
+}
+.div-marker.industry::before {
+	background-image: url('icons/industry.svg');
+}
+.div-marker.information::before {
+	background-image: url('icons/information.svg');
+}
+.div-marker.jewelry-store::before {
+	background-image: url('icons/jewelry-store.svg');
+}
+.div-marker.karaoke::before {
+	background-image: url('icons/karaoke.svg');
+}
+.div-marker.landmark-JP::before {
+	background-image: url('icons/landmark-JP.svg');
+}
+.div-marker.landmark::before {
+	background-image: url('icons/landmark.svg');
+}
+.div-marker.landuse::before {
+	background-image: url('icons/landuse.svg');
+}
+.div-marker.laundry::before {
+	background-image: url('icons/laundry.svg');
+}
+.div-marker.library::before {
+	background-image: url('icons/library.svg');
+}
+.div-marker.lift-gate::before {
+	background-image: url('icons/lift-gate.svg');
+}
+.div-marker.lighthouse-JP::before {
+	background-image: url('icons/lighthouse-JP.svg');
+}
+.div-marker.lighthouse::before {
+	background-image: url('icons/lighthouse.svg');
+}
+.div-marker.lodging::before {
+	background-image: url('icons/lodging.svg');
+}
+.div-marker.logging::before {
+	background-image: url('icons/logging.svg');
+}
+.div-marker.marker-stroked::before {
+	background-image: url('icons/marker-stroked.svg');
+}
+.div-marker.marker::before {
+	background-image: url('icons/marker.svg');
+}
+.div-marker.mobile-phone::before {
+	background-image: url('icons/mobile-phone.svg');
+}
+.div-marker.monument-JP::before {
+	background-image: url('icons/monument-JP.svg');
+}
+.div-marker.monument::before {
+	background-image: url('icons/monument.svg');
+}
+.div-marker.mountain::before {
+	background-image: url('icons/mountain.svg');
+}
+.div-marker.museum::before {
+	background-image: url('icons/museum.svg');
+}
+.div-marker.music::before {
+	background-image: url('icons/music.svg');
+}
+.div-marker.natural::before {
+	background-image: url('icons/natural.svg');
+}
+.div-marker.observation-tower::before {
+	background-image: url('icons/observation-tower.svg');
+}
+.div-marker.optician::before {
+	background-image: url('icons/optician.svg');
+}
+.div-marker.paint::before {
+	background-image: url('icons/paint.svg');
+}
+.div-marker.park-alt1::before {
+	background-image: url('icons/park-alt1.svg');
+}
+.div-marker.parking-garage::before {
+	background-image: url('icons/parking-garage.svg');
+}
+.div-marker.parking-paid::before {
+	background-image: url('icons/parking-paid.svg');
+}
+.div-marker.parking::before {
+	background-image: url('icons/parking.svg');
+}
+.div-marker.park::before {
+	background-image: url('icons/park.svg');
+}
+.div-marker.pharmacy::before {
+	background-image: url('icons/pharmacy.svg');
+}
+.div-marker.picnic-site::before {
+	background-image: url('icons/picnic-site.svg');
+}
+.div-marker.pitch::before {
+	background-image: url('icons/pitch.svg');
+}
+.div-marker.place-of-worship::before {
+	background-image: url('icons/place-of-worship.svg');
+}
+.div-marker.playground::before {
+	background-image: url('icons/playground.svg');
+}
+.div-marker.police-JP::before {
+	background-image: url('icons/police-JP.svg');
+}
+.div-marker.police::before {
+	background-image: url('icons/police.svg');
+}
+.div-marker.post-JP::before {
+	background-image: url('icons/post-JP.svg');
+}
+.div-marker.post::before {
+	background-image: url('icons/post.svg');
+}
+.div-marker.prison::before {
+	background-image: url('icons/prison.svg');
+}
+.div-marker.racetrack-boat::before {
+	background-image: url('icons/racetrack-boat.svg');
+}
+.div-marker.racetrack-cycling::before {
+	background-image: url('icons/racetrack-cycling.svg');
+}
+.div-marker.racetrack-horse::before {
+	background-image: url('icons/racetrack-horse.svg');
+}
+.div-marker.racetrack::before {
+	background-image: url('icons/racetrack.svg');
+}
+.div-marker.rail-light::before {
+	background-image: url('icons/rail-light.svg');
+}
+.div-marker.rail-metro::before {
+	background-image: url('icons/rail-metro.svg');
+}
+.div-marker.rail::before {
+	background-image: url('icons/rail.svg');
+}
+.div-marker.ranger-station::before {
+	background-image: url('icons/ranger-station.svg');
+}
+.div-marker.recycling::before {
+	background-image: url('icons/recycling.svg');
+}
+.div-marker.religious-buddhist::before {
+	background-image: url('icons/religious-buddhist.svg');
+}
+.div-marker.religious-christian::before {
+	background-image: url('icons/religious-christian.svg');
+}
+.div-marker.religious-jewish::before {
+	background-image: url('icons/religious-jewish.svg');
+}
+.div-marker.religious-muslim::before {
+	background-image: url('icons/religious-muslim.svg');
+}
+.div-marker.religious-shinto::before {
+	background-image: url('icons/religious-shinto.svg');
+}
+.div-marker.residential-community::before {
+	background-image: url('icons/residential-community.svg');
+}
+.div-marker.restaurant-bbq::before {
+	background-image: url('icons/restaurant-bbq.svg');
+}
+.div-marker.restaurant-noodle::before {
+	background-image: url('icons/restaurant-noodle.svg');
+}
+.div-marker.restaurant-pizza::before {
+	background-image: url('icons/restaurant-pizza.svg');
+}
+.div-marker.restaurant-seafood::before {
+	background-image: url('icons/restaurant-seafood.svg');
+}
+.div-marker.restaurant-sushi::before {
+	background-image: url('icons/restaurant-sushi.svg');
+}
+.div-marker.restaurant::before {
+	background-image: url('icons/restaurant.svg');
+}
+.div-marker.road-accident::before {
+	background-image: url('icons/road-accident.svg');
+}
+.div-marker.roadblock::before {
+	background-image: url('icons/roadblock.svg');
+}
+.div-marker.rocket::before {
+	background-image: url('icons/rocket.svg');
+}
+.div-marker.scooter::before {
+	background-image: url('icons/scooter.svg');
+}
+.div-marker.shelter::before {
+	background-image: url('icons/shelter.svg');
+}
+.div-marker.shoe::before {
+	background-image: url('icons/shoe.svg');
+}
+.div-marker.shop::before {
+	background-image: url('icons/shop.svg');
+}
+.div-marker.school-JP::before {
+	background-image: url('icons/school-JP.svg');
+}
+.div-marker.school::before {
+	background-image: url('icons/school.svg');
+}
+.div-marker.skateboard::before {
+	background-image: url('icons/skateboard.svg');
+}
+.div-marker.skiing::before {
+	background-image: url('icons/skiing.svg');
+}
+.div-marker.slaughterhouse::before {
+	background-image: url('icons/slaughterhouse.svg');
+}
+.div-marker.slipway::before {
+	background-image: url('icons/slipway.svg');
+}
+.div-marker.snowmobile::before {
+	background-image: url('icons/snowmobile.svg');
+}
+.div-marker.soccer::before {
+	background-image: url('icons/soccer.svg');
+}
+.div-marker.square-stroked::before {
+	background-image: url('icons/square-stroked.svg');
+}
+.div-marker.square::before {
+	background-image: url('icons/square.svg');
+}
+.div-marker.stadium::before {
+	background-image: url('icons/stadium.svg');
+}
+.div-marker.star-stroked::before {
+	background-image: url('icons/star-stroked.svg');
+}
+.div-marker.star::before {
+	background-image: url('icons/star.svg');
+}
+.div-marker.suitcase::before {
+	background-image: url('icons/suitcase.svg');
+}
+.div-marker.swimming::before {
+	background-image: url('icons/swimming.svg');
+}
+.div-marker.table-tennis::before {
+	background-image: url('icons/table-tennis.svg');
+}
+.div-marker.teahouse::before {
+	background-image: url('icons/teahouse.svg');
+}
+.div-marker.telephone::before {
+	background-image: url('icons/telephone.svg');
+}
+.div-marker.tennis::before {
+	background-image: url('icons/tennis.svg');
+}
+.div-marker.terminal::before {
+	background-image: url('icons/terminal.svg');
+}
+.div-marker.theatre::before {
+	background-image: url('icons/theatre.svg');
+}
+.div-marker.toilet::before {
+	background-image: url('icons/toilet.svg');
+}
+.div-marker.toll::before {
+	background-image: url('icons/toll.svg');
+}
+.div-marker.town-hall::before {
+	background-image: url('icons/town-hall.svg');
+}
+.div-marker.town::before {
+	background-image: url('icons/town.svg');
+}
+.div-marker.triangle-stroked::before {
+	background-image: url('icons/triangle-stroked.svg');
+}
+.div-marker.triangle::before {
+	background-image: url('icons/triangle.svg');
+}
+.div-marker.tunnel::before {
+	background-image: url('icons/tunnel.svg');
+}
+.div-marker.veterinary::before {
+	background-image: url('icons/veterinary.svg');
+}
+.div-marker.viewpoint::before {
+	background-image: url('icons/viewpoint.svg');
+}
+.div-marker.village::before {
+	background-image: url('icons/village.svg');
+}
+.div-marker.volcano::before {
+	background-image: url('icons/volcano.svg');
+}
+.div-marker.volleyball::before {
+	background-image: url('icons/volleyball.svg');
+}
+.div-marker.warehouse::before {
+	background-image: url('icons/warehouse.svg');
+}
+.div-marker.waste-basket::before {
+	background-image: url('icons/waste-basket.svg');
+}
+.div-marker.waterfall::before {
+	background-image: url('icons/waterfall.svg');
+}
+.div-marker.watermill::before {
+	background-image: url('icons/watermill.svg');
+}
+.div-marker.water::before {
+	background-image: url('icons/water.svg');
+}
+.div-marker.watch::before {
+	background-image: url('icons/watch.svg');
+}
+.div-marker.wetland::before {
+	background-image: url('icons/wetland.svg');
+}
+.div-marker.wheelchair::before {
+	background-image: url('icons/wheelchair.svg');
+}
+.div-marker.windmill::before {
+	background-image: url('icons/windmill.svg');
+}
+.div-marker.zoo::before {
+	background-image: url('icons/zoo.svg');
+}
