@@ -167,7 +167,7 @@ L.Grid = L.GeoJSON.extend({
 			icon: L.divIcon({
 				iconSize: [0, 0],
 				className: 'leaflet-grid-label',
-				html: '<div class="' + axis + '">' + this.formatCoord(num, axis) + '</div>'
+				html: '<div class="' + axis + '">&nbsp;' + this.formatCoord(num, axis) + '</div>'
 			})
 		});
 	},
