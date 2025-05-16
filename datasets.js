@@ -12,27 +12,71 @@
  * Relative URLs make testing on a local server easier.
  */
 var datasets = {
-	"Belgium":
-	{
-		"BEdl":
-		{
-			"url": "datasets/belgium-haltes-de-lijn/", 
-			"name": "Haltes De Lijn",
-		},
-	},
-	"Italy": {
-		"ITfuel":
-		{
-			"url": "datasets/Italia-stazioni-di-servizo/",
-			"name": "Stazioni di servizo",
-		}
-	},
-	"Norway" :
-	{
-		"NOkg":
-		{
-			"url": "datasets/norge-barnehagefakta/",
-			"name": "Barnehagefakta",
-		}
-	}
+  "Česká pošta" :
+  {
+    "Schránky" :
+    {
+    "url": "datasets/Czech-ceska-posta-schranky/",
+    "name": "Schránky"
+    }
+  },
+  "Zásilkovna" :
+  {
+    "Z-Boxy" :
+    {
+      "url": "datasets/Czech-Zasilkovna-Z-BOXy/",
+      "name": "Zásilkovna: Z-BOXy"
+    }
+  },
+  "Nadace Partnerství" :
+  {
+   "NAP_guest_house":
+    {
+      "url": "datasets/Czech-NAP/guest_house/",
+      "name": "NAP Pensiony"
+    },
+    "NAP_hotel":
+    {
+      "url": "datasets/Czech-NAP/hotel/",
+      "name": "NAP Hotely"
+    },
+    "NAP_hostel":
+    {
+      "url": "datasets/Czech-NAP/hostel/",
+      "name": "NAP Hostely"
+    },
+    "NAP_chalet":
+    {
+      "url": "datasets/Czech-NAP/chalet/",
+      "name": "NAP Chatky"
+    },
+    "NAP_apartment":
+    {
+      "url": "datasets/Czech-NAP/apartment/",
+      "name": "NAP Apatmány"
+    },
+    "NAP_motel":
+    {
+      "url": "datasets/Czech-NAP/motel/",
+      "name": "NAP Motely"
+    },
+    "NAP_camp_site":
+    {
+      "url": "datasets/Czech-NAP/camp_site/",
+      "name": "NAP Kempy"
+    },
+    "NAP_information_office":
+    {
+      "url": "datasets/Czech-NAP/information_office/",
+      "name": "NAP Informační centra"
+    },
+  },
+  "Powerbox" :
+  {
+    "Powerbox" :
+    {
+      "url": "datasets/Czech-Powerbox/",
+      "name": "Nabíjecí stanice"
+    }
+  },
 };
